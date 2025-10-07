@@ -20,19 +20,19 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-32 text-center">
         <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-            The new age of customer service is AI-first
+            Gulf's Advanced AI & Analytics Company
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            AI-first is a totally new way to deliver customer service. The entire platform is powered by AI—so customers get instant support with an AI agent, agents get instant answers with an AI copilot, and support leaders get instant AI insights.
+            From voice automation to analytics dashboards, GulfAI builds localized, production-ready AI systems that deliver measurable outcomes for Gulf enterprises.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Button variant="hero-outline" size="lg" className="text-base">
-              View demo
+              See a Gulf Pilot
             </Button>
             <Button variant="hero" size="lg" className="text-base">
-              Start free trial
+              Start Your AI Transformation
             </Button>
           </div>
         </div>

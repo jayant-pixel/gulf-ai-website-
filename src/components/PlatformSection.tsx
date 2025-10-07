@@ -1,26 +1,17 @@
-import { MessageSquare, Inbox, Ticket, HelpCircle, Users, BarChart } from "lucide-react";
+import { Brain, Heart, TrendingUp, Factory, BarChart, ShoppingCart, Eye, Linkedin, MapPin, Bot, Mic, DollarSign } from "lucide-react";
 
 const features = [
-  "Messenger",
-  "Inbox views",
-  "Help Center customization",
-  "Multiple Help Centers",
-  "Workload management",
-  "Multiple team Inboxes",
-  "Macros",
-  "Inbound and outbound phone calls",
-  "Messenger calls",
-  "Messenger screensharing",
-  "Interactive voice response",
-  "Fin Custom Answers",
-  "Workflows for Fin",
-  "Content targeting",
-  "Multiple content sources",
-  "Pre-built reports",
-  "Custom reports",
-  "Conversation topics",
-  "App Store",
-  "APIs and SDKs"
+  { icon: Brain, title: "Recruit AI", description: "Automate hiring, scoring, and candidate engagement." },
+  { icon: Heart, title: "Hospital AI", description: "Streamline appointment systems and patient communication." },
+  { icon: ShoppingCart, title: "E-commerce AI", description: "Personalize experiences and boost conversions." },
+  { icon: BarChart, title: "Dashboard AI", description: "Integrate analytics across every department." },
+  { icon: Factory, title: "Industry 4.0 AI", description: "Predict machine failures and optimize throughput." },
+  { icon: Eye, title: "Vision AI", description: "Convert CCTV data into safety insights." },
+  { icon: Linkedin, title: "LinkedIn AI", description: "Generate qualified leads on autopilot." },
+  { icon: Mic, title: "Voice AI", description: "AI voice support across Arabic and English." },
+  { icon: Bot, title: "Agentic AI (RPA)", description: "Build automations that think, validate, and recover." },
+  { icon: DollarSign, title: "Finance AI", description: "Stay audit-ready and prevent fraud with proactive insights." },
+  { icon: MapPin, title: "Locator AI", description: "Seamless indoor navigation for malls and warehouses." },
 ];
 
 const PlatformSection = () => {
@@ -29,90 +20,34 @@ const PlatformSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 animate-fade-in-up">
-            The complete customer service platform
+            The complete AI suite for Gulf enterprises
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Features List */}
-            <div className="space-y-2 animate-fade-in-up">
-              {features.map((feature, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
                 <div
                   key={index}
-                  className="py-4 border-b border-border hover:bg-muted/50 transition-colors px-4 rounded-lg"
-                  style={{ animationDelay: `${index * 0.02}s` }}
+                  className="bg-card p-6 rounded-xl border border-border hover:border-accent transition-all hover:shadow-lg animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground font-medium">{feature}</span>
-                    <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
-                      <div className="w-2 h-2 bg-accent rounded-full" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Product Preview */}
-            <div className="sticky top-24 animate-fade-in">
-              <div className="bg-gradient-to-br from-muted to-secondary rounded-2xl p-8 shadow-xl">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between bg-card p-4 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                        <MessageSquare className="w-5 h-5 text-accent-foreground" />
-                      </div>
-                      <div>
-                        <p className="font-semibold">Fin</p>
-                        <p className="text-sm text-muted-foreground">AI Agent</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="w-8 h-8 bg-muted rounded flex items-center justify-center">
-                        <Inbox className="w-4 h-4" />
-                      </div>
-                      <div className="w-8 h-8 bg-muted rounded flex items-center justify-center">
-                        <Ticket className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="bg-card p-4 rounded-lg">
-                      <p className="text-sm mb-2 text-muted-foreground">Hello, Paul.</p>
-                      <p className="font-semibold text-lg mb-4">How can I help?</p>
-                      <div className="bg-accent/10 text-accent px-3 py-2 rounded-lg text-sm inline-block">
-                        How many API calls can I make each month?
-                      </div>
-                    </div>
-
-                    <div className="bg-card p-4 rounded-lg space-y-3">
-                      <p className="text-sm text-muted-foreground">
-                        Since you're on the Premium Plan, 15k API requests are included in your plan each month. You get 12k requests for the base plan, with an extra 3k per seat included with the Enterprise API add-on.
-                      </p>
-                      <div className="bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-medium inline-block">
-                        Can I purchase it in 3 easy-for-the-green-card-way?
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        What's included in your plan? 💡
-                        <br />
-                        FAQ: Using APIs ↗
-                      </p>
-                    </div>
-
-                    <div className="bg-card p-4 rounded-lg">
-                      <p className="text-sm text-muted-foreground">
-                        Great, that's answered. You'll receive a confirmation by email.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-muted-foreground" />
-                    <BarChart className="w-5 h-5 text-muted-foreground" />
-                    <HelpCircle className="w-5 h-5 text-muted-foreground" />
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

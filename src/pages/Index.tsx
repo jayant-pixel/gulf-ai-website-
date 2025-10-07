@@ -1,11 +1,13 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ProductShowcase from "@/components/ProductShowcase";
-import CEOLetter from "@/components/CEOLetter";
+import CopilotSection from "@/components/CopilotSection";
 import FeaturesSection from "@/components/FeaturesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import CEOLetter from "@/components/CEOLetter";
 import StatsSection from "@/components/StatsSection";
 import PlatformSection from "@/components/PlatformSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,12 +16,14 @@ const Index = () => {
       <main>
         <HeroSection />
         <ProductShowcase />
-        <CEOLetter />
+        <CopilotSection />
         <FeaturesSection />
-        <TestimonialsSection />
+        <CEOLetter />
         <StatsSection />
         <PlatformSection />
+        <CTASection />
       </main>
+      <Footer />
     </div>
   );
 };

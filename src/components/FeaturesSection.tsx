@@ -3,62 +3,70 @@ import { Sparkles, Users, BarChart3 } from "lucide-react";
 
 const features = [
   {
-    badge: "For customers",
+    badge: "For Customers",
     badgeColor: "bg-accent",
-    title: "Instant service, exceptional experiences",
+    title: "Instant service, localized experiences",
     icon: Sparkles,
     items: [
       {
-        title: "Fin AI Agent",
-        description: "Provide 24/7 support and resolve 50% of support volume, instantly. It's so much more than an AI chatbot."
+        title: "Hospital AI",
+        description: "24/7 appointment booking in Arabic & English."
       },
       {
-        title: "Omnichannel",
-        description: "Deliver exceptional experiences wherever your customers are—across channels, at scale."
+        title: "E-commerce AI",
+        description: "Voice and avatar assistants that increase engagement."
       },
       {
         title: "Help Center",
-        description: "Help customers find accurate answers when and where they need them."
+        description: "Always-accurate answers in every language and channel."
       }
     ]
   },
   {
-    badge: "For support agents",
+    badge: "For Teams",
     badgeColor: "bg-success",
-    title: "AI-first tools for more efficient agents",
+    title: "Smarter workflows, fewer bottlenecks",
     icon: Users,
     items: [
       {
-        title: "Inbox",
-        description: "Maximize productivity with an AI-enhanced inbox."
+        title: "Recruit AI",
+        description: "Resume screening and candidate calls made effortless."
       },
       {
-        title: "Fin AI Copilot",
-        description: "A personal AI assistant for every support agent."
+        title: "Agentic AI",
+        description: "Intelligent automations for document validation and process flow."
       },
       {
-        title: "Tickets",
-        description: "Resolve complex issues quickly with tickets optimized for collaboration."
+        title: "Voice AI",
+        description: "Natural, bilingual communication integrated into your systems."
       }
     ]
   },
   {
-    badge: "For support leaders",
+    badge: "For Leaders",
     badgeColor: "bg-blue-500",
-    title: "Tools and insights to empower your support team",
+    title: "Clarity, control, measurable outcomes",
     icon: BarChart3,
     items: [
       {
-        title: "AI Insights & Reporting",
-        description: "Robust reporting and insights for your entire support operation."
+        title: "Dashboard AI",
+        description: "Unified reporting for HR, CX, and operations."
       },
       {
-        title: "Workflows",
-        description: "Build powerful automations with our no-code visual builder."
+        title: "Industry 4.0 AI",
+        description: "Predictive maintenance for maximum uptime."
       },
       {
-        title: "Outbound messaging",
-        description: "Send proactive messages to get ahead of issues and reduce inbound volume."
+        title: "Vision AI",
+        description: "Real-time safety and compliance analytics."
+      },
+      {
+        title: "LinkedIn AI",
+        description: "Automated lead generation and outreach."
+      },
+      {
+        title: "Finance AI",
+        description: "Real-time fraud alerts and compliance insights."
       }
     ]
   }
@@ -68,12 +76,6 @@ const FeaturesSection = () => {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            AI-first customer service for customers, agents, and leaders
-          </h2>
-        </div>
-
         <div className="space-y-24">
           {features.map((feature, index) => (
             <div 
@@ -109,7 +111,7 @@ const FeaturesSection = () => {
                       size="lg"
                       className="mt-4"
                     >
-                      Learn more
+                      Learn More
                     </Button>
                   </div>
 

@@ -1,82 +1,148 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import recruitAI from "@/assets/recruit-ai.jpg";
+import hospitalAI from "@/assets/hospital-ai.jpg";
+import financeAI from "@/assets/finance-ai.jpg";
+import industryAI from "@/assets/industry-ai.jpg";
+import dashboardAI from "@/assets/dashboard-ai.jpg";
+import ecommerceAI from "@/assets/ecommerce-ai.jpg";
+import visionAI from "@/assets/vision-ai.jpg";
+import linkedinAI from "@/assets/linkedin-ai.jpg";
+import locatorAI from "@/assets/locator-ai.jpg";
+import agenticAI from "@/assets/agentic-ai.jpg";
+import voiceAI from "@/assets/voice-ai.jpg";
 
-const tabs = [
-  "Integrations",
-  "Knowledge Hub",
-  "Fin AI Copilot",
-  "Fin AI Agent",
-  "Tickets",
-  "Inbox"
+const products = [
+  {
+    title: "Recruit AI",
+    description: "Automate candidate screening and interviews in Arabic & English.",
+    image: recruitAI,
+  },
+  {
+    title: "Hospital AI",
+    description: "Manage patient bookings and inquiries with 24/7 multilingual support.",
+    image: hospitalAI,
+  },
+  {
+    title: "Finance AI",
+    description: "Streamline compliance and detect fraud in real time.",
+    image: financeAI,
+  },
+  {
+    title: "Industry 4.0 AI",
+    description: "Predict downtime and optimize production efficiency.",
+    image: industryAI,
+  },
+  {
+    title: "Dashboard AI",
+    description: "Get boardroom-ready insights across HR, CX, and operations.",
+    image: dashboardAI,
+  },
+  {
+    title: "E-commerce AI",
+    description: "Engage customers with AI-driven avatars and voice guidance.",
+    image: ecommerceAI,
+  },
+  {
+    title: "Vision AI",
+    description: "Turn CCTV into safety and compliance intelligence.",
+    image: visionAI,
+  },
+  {
+    title: "LinkedIn AI",
+    description: "Generate and nurture leads automatically.",
+    image: linkedinAI,
+  },
+  {
+    title: "Locator AI",
+    description: "Deliver seamless navigation in malls, expos, and warehouses.",
+    image: locatorAI,
+  },
+  {
+    title: "Agentic AI",
+    description: "Automate tasks with intelligent RPA workflows.",
+    image: agenticAI,
+  },
+  {
+    title: "Voice AI",
+    description: "Handle bilingual (Arabic + English) customer conversations naturally.",
+    image: voiceAI,
+  },
 ];
 
 const ProductShowcase = () => {
-  const [activeTab, setActiveTab] = useState(2);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
+  };
 
   return (
-    <section className="relative py-24 bg-gradient-to-b from-transparent to-background">
+    <section className="py-24 bg-card">
       <div className="container mx-auto px-6">
-        <div className="text-center space-y-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-4xl mx-auto animate-fade-in-up">
-            Platform is the only complete AI-first customer service platform
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            AI for Gulf enterprises delivering measurable outcomes
           </h2>
+        </div>
 
-          {/* Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in">
-            {tabs.map((tab, index) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(index)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                  activeTab === index
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          {/* Product Screenshot */}
-          <div className="relative max-w-6xl mx-auto animate-fade-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-card border border-border">
-              <div className="aspect-video bg-gradient-to-br from-muted to-secondary flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <div className="text-6xl">💬</div>
-                  <p className="text-xl font-semibold text-muted-foreground">
-                    {tabs[activeTab]} Interface
-                  </p>
-                  <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                    A personal AI assistant for every support agent with instant answers and intelligent suggestions.
-                  </p>
-                </div>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="overflow-hidden rounded-3xl bg-background border border-border">
+            <div className="aspect-video relative">
+              <img
+                src={products[currentIndex].image}
+                alt={products[currentIndex].title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  {products[currentIndex].title}
+                </h3>
+                <p className="text-lg text-white/90">
+                  {products[currentIndex].description}
+                </p>
               </div>
             </div>
-
-            {/* Navigation Arrows */}
-            <Button
-              variant="secondary"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full shadow-lg"
-              onClick={() => setActiveTab((prev) => (prev > 0 ? prev - 1 : tabs.length - 1))}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-            <Button
-              variant="secondary"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full shadow-lg"
-              onClick={() => setActiveTab((prev) => (prev < tabs.length - 1 ? prev + 1 : 0))}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
           </div>
 
-          <p className="text-lg text-muted-foreground animate-fade-in">
-            A personal AI assistant for every support agent.
-          </p>
+          <div className="flex items-center justify-between mt-8">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevSlide}
+              className="rounded-full"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+
+            <div className="flex gap-2">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "w-8 bg-accent"
+                      : "w-2 bg-muted hover:bg-muted-foreground"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextSlide}
+              className="rounded-full"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
