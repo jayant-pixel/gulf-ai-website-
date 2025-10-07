@@ -14,11 +14,21 @@ export default {
     },
     extend: {
       colors: {
+        'background-light': '#FFFFFF',
+        'background-dark': '#111827',
+        'text-light': '#1F2937',
+        'text-dark': '#F9FAFB',
+        'subtext-light': '#6B7280',
+        'subtext-dark': '#9CA3AF',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "#3B82F6",
+          foreground: "hsl(var(--primary-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
