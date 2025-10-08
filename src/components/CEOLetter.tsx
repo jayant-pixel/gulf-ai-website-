@@ -1,5 +1,3 @@
-import ceoLetterImage from "@/assets/CEO letter.png";
-
 const CEOLetter = () => {
   return (
     <section className="py-24 bg-white">
@@ -26,7 +24,7 @@ const CEOLetter = () => {
 
             <div className="animate-fade-in">
               <img 
-                src={ceoLetterImage} 
+                src="https://res.cloudinary.com/dslutbftw/image/upload/v1759914875/CEO_letter-Photoroom_ktxkv5.png" 
                 alt="CEO Letter Illustration" 
                 className="w-full h-auto"
               />

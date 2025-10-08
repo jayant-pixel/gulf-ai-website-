@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import backgroundImage from "@/assets/final background.jpg";
 import recruitAI from "@/assets/recruit-ai.jpg";
 import hospitalAI from "@/assets/hospital-ai.jpg";
 import financeAI from "@/assets/finance-ai.jpg";
@@ -85,7 +84,7 @@ const HeroSection = () => {
 
   return (
     <div className="relative">
-      <img src={backgroundImage} alt="Background" className="w-full h-auto" />
+      <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1759914915/final_background_swzxin.png" alt="Background" className="w-full h-auto" />
       <div className="absolute inset-0 z-10 flex flex-col h-full">
         <main className="pt-20 md:pt-32 pb-24 px-6 md:px-12">
           <div className="max-w-xl">
