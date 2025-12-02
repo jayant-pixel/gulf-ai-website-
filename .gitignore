@@ -7,22 +7,37 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
 
-# Custom ignore files
-designcodes.md
-prompt.md
+# Build outputs
 dist
 dist-ssr
-*.local
 
-# Editor directories and files
+# Local config
+*.local
+.env
+.env.*
+
+# Editor/system
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+.cache/
+*.tmp
+*.temp
+*.bak
+
+# Project-specific
+designcodes.md
+prompt.md
+web details.md
+website site map.md
+sectiontest.html

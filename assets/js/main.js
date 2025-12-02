@@ -1,152 +1,152 @@
-if (window.lucide && typeof lucide.createIcons === 'function') {
-    lucide.createIcons();
-}
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
-function toggleExpertiseItem(element) {
-    if (!element || element.classList.contains('active')) return;
+    // --- Mobile Menu Toggle ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-    const section = element.closest('.expertise-section');
-    if (!section) return;
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    }
 
-    const allItems = section.querySelectorAll('.accordion-item');
-    const mainImage = section.querySelector('#expertise-main-image');
-    const imageFrame = section.querySelector('.expertise-image-frame');
-
-    allItems.forEach(item => item.classList.remove('active'));
-    element.classList.add('active');
-
-    if (mainImage) {
-        const newImageSrc = element.getAttribute('data-image');
-        mainImage.style.opacity = '0';
-        if (imageFrame) {
-            imageFrame.classList.add('loading');
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
         }
+    });
 
-        setTimeout(() => {
-            mainImage.src = newImageSrc;
-            mainImage.onload = () => {
-                mainImage.style.opacity = '0.9';
-                if (imageFrame) {
-                    imageFrame.classList.remove('loading');
-                }
-            };
-        }, 300);
-    }
-}
+    // --- ACCORDION & IMAGE SWITCHER ---
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    const mainImage = document.getElementById('automation-main-image');
 
-window.addEventListener('load', () => {
-    const frame = document.querySelector('.expertise-image-frame');
-    if (!frame) return;
-    const img = frame.querySelector('img');
-    if (img && img.complete) {
-        frame.classList.remove('loading');
-    } else if (img) {
-        img.addEventListener('load', () => frame.classList.remove('loading'), { once: true });
-    }
-});
+    accordionItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (this.classList.contains('active')) return;
 
-const testimonialData = [
-    {
-        quote: '“We\'re delighted with AREA 17\'s work—exceptional design, a user experience that solved business challenges, and optimized lead generation.”',
-        name: 'Dafna Sarnoff',
-        role: 'Directrice du marketing, Intersection',
-        company: 'INTER'
-    },
-    {
-        quote: '“The new design system completely transformed our workflow. It’s elegant, intuitive, and the team adoption has been instant.”',
-        name: 'Sam Forde',
-        role: 'Merchant Support Manager, Zapier',
-        company: 'ZAPIER'
-    },
-    {
-        quote: '“Gulf AI delivered beyond expectations. The ROI was visible within the first quarter and our customers love the new interface.”',
-        name: 'Jeff Cardoso',
-        role: 'VP Operations, Azazie',
-        company: 'AZAZIE'
-    }
-];
+            accordionItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
 
-let testimonialIndex = 0;
-let testimonialInterval;
-const TESTIMONIAL_AUTO_SCROLL = 5000;
+            const newImageSrc = this.getAttribute('data-image');
+            
+            if (mainImage && newImageSrc) {
+                mainImage.style.opacity = '0';
+                setTimeout(() => {
+                    mainImage.src = newImageSrc;
+                    mainImage.onload = () => {
+                        mainImage.style.opacity = '0.9';
+                    };
+                }, 300);
+            }
+        });
+    });
 
-function initTestimonialCarousel() {
-    const quoteEl = document.querySelector('#quote-display .quote-text');
+    // --- TESTIMONIAL SLIDER ---
+    const testimonials = [
+        {
+            quote: "“We're delighted with AREA 17's work—exceptional design, a user experience that solved business challenges, and optimized lead generation.”",
+            name: "Dafna Sarnoff",
+            role: "Directrice du marketing, Intersection",
+            company: "AREA 17"
+        },
+        {
+            quote: "“The new design system completely transformed our workflow. It’s elegant, intuitive, and the team adoption has been instant.”",
+            name: "Sam Forde",
+            role: "Merchant Support Manager, Zapier",
+            company: "ZAPIER"
+        },
+        {
+            quote: "“Gulf AI delivered beyond expectations. The ROI was visible within the first quarter and our customers love the new interface.”",
+            name: "Jeff Cardoso",
+            role: "VP Operations, Azazie",
+            company: "AZAZIE"
+        }
+    ];
+
+    let testIndex = 0;
+    let testInterval;
+    const AUTO_SCROLL_TIME = 5000;
+
+    const quoteEl = document.querySelector('.quote-text');
     const containerEl = document.querySelector('#quote-display');
     const nameEl = document.querySelector('#author-name');
     const roleEl = document.querySelector('#author-role');
     const logoEl = document.querySelector('#logo-display');
     const progressEl = document.querySelector('#progress-bar');
+    const prevBtn = document.querySelector('#prev-test-btn');
+    const nextBtn = document.querySelector('#next-test-btn');
 
-    if (!quoteEl || !containerEl || !nameEl || !roleEl || !logoEl || !progressEl) {
-        return;
-    }
+    // Only run if elements exist
+    if (quoteEl && containerEl) {
+        function updateSlide() {
+            containerEl.classList.remove('active');
+            progressEl.classList.remove('animate');
+            progressEl.classList.add('reset');
 
-    const applySlide = () => {
-        const data = testimonialData[testimonialIndex];
-        quoteEl.textContent = data.quote;
-        nameEl.textContent = data.name;
-        roleEl.textContent = data.role;
-        logoEl.textContent = data.company;
-    };
+            setTimeout(() => {
+                const data = testimonials[testIndex];
+                quoteEl.textContent = data.quote;
+                nameEl.textContent = data.name;
+                roleEl.textContent = data.role;
+                logoEl.textContent = data.company;
 
-    const updateSlide = () => {
-        containerEl.classList.remove('active');
-        progressEl.classList.remove('animate');
-        progressEl.classList.add('reset');
+                containerEl.classList.add('active');
+                
+                setTimeout(() => {
+                    progressEl.classList.remove('reset');
+                    progressEl.classList.add('animate');
+                }, 50);
+            }, 600);
+        }
 
-        setTimeout(() => {
-            applySlide();
-            containerEl.classList.add('active');
-            requestAnimationFrame(() => {
-                progressEl.classList.remove('reset');
-                progressEl.classList.add('animate');
+        function nextSlide() {
+            testIndex = (testIndex + 1) % testimonials.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            testIndex = (testIndex - 1 + testimonials.length) % testimonials.length;
+            updateSlide();
+        }
+
+        function startAutoScroll() {
+            if (testInterval) clearInterval(testInterval);
+            testInterval = setInterval(nextSlide, AUTO_SCROLL_TIME);
+            progressEl.classList.remove('reset');
+            progressEl.classList.add('animate');
+        }
+
+        function stopAutoScroll() {
+            clearInterval(testInterval);
+            progressEl.classList.remove('animate');
+            progressEl.classList.add('reset');
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                prevSlide();
+                startAutoScroll();
             });
-        }, 400);
-    };
-
-    const nextSlide = () => {
-        testimonialIndex = (testimonialIndex + 1) % testimonialData.length;
-        updateSlide();
-    };
-
-    const prevSlide = () => {
-        testimonialIndex = (testimonialIndex - 1 + testimonialData.length) % testimonialData.length;
-        updateSlide();
-    };
-
-    const startAutoScroll = () => {
-        if (testimonialInterval) {
-            clearInterval(testimonialInterval);
         }
-        testimonialInterval = setInterval(nextSlide, TESTIMONIAL_AUTO_SCROLL);
-        progressEl.classList.remove('reset');
-        progressEl.classList.add('animate');
-    };
 
-    const stopAutoScroll = () => {
-        if (testimonialInterval) {
-            clearInterval(testimonialInterval);
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                nextSlide();
+                startAutoScroll();
+            });
         }
-        progressEl.classList.remove('animate');
-        progressEl.classList.add('reset');
-    };
 
-    window.manualNext = () => {
-        stopAutoScroll();
-        nextSlide();
+        // Init
         startAutoScroll();
-    };
-
-    window.manualPrev = () => {
-        stopAutoScroll();
-        prevSlide();
-        startAutoScroll();
-    };
-
-    applySlide();
-    containerEl.classList.add('active');
-    startAutoScroll();
-}
-
-document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+    }
+});
