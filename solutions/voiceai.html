@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI | Gulf AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../assets/css/main.css?v=20251202">
+    <link rel="stylesheet" href="../assets/css/mega-menu.css?v=20251203">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --color-cream: #FDFBF7;
+            --color-cream-dark: #F0EFE9;
+            --color-dark-brown: #2C241B;
+            --color-rust-orange: #C15B28;
+            --color-warm-gold: #D4AF37;
+            --color-voice-purple: #7c3aed;
+            --color-white: #FFFFFF;
+
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'Outfit', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            --radius-md: 12px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-dark-brown);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+            font-family: var(--font-sans);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-dark-brown);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-dark-brown);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-dark-brown);
+            border: 1px solid var(--color-dark-brown);
+            border-radius: 50px;
+            padding: 16px 32px;
+            display: inline-flex;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border: 1px solid rgba(44, 36, 27, 0.2);
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 0;
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 24px;
+            color: var(--color-dark-brown);
+        }
+
+        .hero-content h1 span {
+            color: var(--color-voice-purple);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: #5A524A;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        /* Hero Visual - "The Sound Wave" */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .waveform-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            height: 200px;
+        }
+
+        .wave-bar {
+            width: 8px;
+            background: var(--color-voice-purple);
+            border-radius: 4px;
+            animation: soundWave 1.2s infinite ease-in-out;
+        }
+
+        @keyframes soundWave {
+
+            0%,
+            100% {
+                height: 20px;
+                opacity: 0.5;
+            }
+
+            50% {
+                height: 120px;
+                opacity: 1;
+            }
+        }
+
+        /* Stagger animations for varied look */
+        .wb-1 {
+            animation-delay: 0s;
+            height: 40px;
+        }
+
+        .wb-2 {
+            animation-delay: 0.2s;
+            height: 80px;
+        }
+
+        .wb-3 {
+            animation-delay: 0.4s;
+            height: 140px;
+            background: var(--color-rust-orange);
+        }
+
+        .wb-4 {
+            animation-delay: 0.1s;
+            height: 60px;
+        }
+
+        .wb-5 {
+            animation-delay: 0.5s;
+            height: 100px;
+        }
+
+        .wb-6 {
+            animation-delay: 0.3s;
+            height: 50px;
+        }
+
+        /* Floating Call Card */
+        .call-card {
+            position: absolute;
+            bottom: 20%;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #eee;
+            border-radius: 50%;
+        }
+
+        .mic-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--color-voice-purple);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* --- LANGUAGE TICKER --- */
+        .ticker-wrap {
+            width: 100%;
+            background: var(--color-voice-purple);
+            color: var(--color-white);
+            padding: 16px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 40px;
+            font-weight: 700;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        /* --- CALL FLOW DIAGRAM --- */
+        .flow-section {
+            padding: 100px 0;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .voice-pipeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .v-step {
+            width: 180px;
+            padding: 20px;
+            border: 1px solid rgba(44, 36, 27, 0.1);
+            border-radius: 12px;
+            background: var(--color-cream);
+            position: relative;
+        }
+
+        .v-icon-lg {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 16px;
+            color: var(--color-voice-purple);
+        }
+
+        .v-arrow {
+            color: var(--color-rust-orange);
+            opacity: 0.5;
+        }
+
+        /* --- BENTO GRID --- */
+        .features {
+            padding: 100px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            border: 1px solid rgba(44, 36, 27, 0.05);
+        }
+
+        .bento-card.dark {
+            background: var(--color-dark-brown);
+            color: var(--color-cream);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-cream);
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 24px;
+            color: var(--color-voice-purple);
+        }
+
+        .bento-card.dark .card-icon {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-warm-gold);
+        }
+
+        /* --- SUCCESS STORY --- */
+        .success-section {
+            padding: 100px 0;
+            background-color: var(--color-cream-dark);
+        }
+
+        .success-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* --- CTA --- */
+        .page-cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+                margin-top: 40px;
+            }
+
+            .voice-pipeline {
+                flex-direction: column;
+            }
+
+            .v-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .span-2 {
+                grid-column: auto;
+            }
+
+            .success-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <div class="logo-icon-wrapper">
+                <div class="logo-bar lg"></div>
+                <div class="logo-bar md"></div>
+                <div class="logo-bar sm"></div>
+            </div>
+            <span>gulf ai</span>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu">
+            <div class="nav-links">
+                <div class="nav-item dropdown">
+                    <button class="nav-btn nav-dropdown-trigger">
+                        Solutions
+                        <i data-lucide="chevron-down" style="width: 12px;"></i>
+                    </button>
+                    <div class="mega-menu">
+                        <div class="mega-menu-col">
+                            <h4>Customer Experience</h4>
+                            <a href="voiceai.html" class="mega-link">Voice AI</a>
+                            <a href="hospitalai.html" class="mega-link">Hospital AI</a>
+                            <a href="ecommerceai.html" class="mega-link">E-commerce AI</a>
+                            <a href="locatorai.html" class="mega-link">Locator AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Operations</h4>
+                            <a href="industry40ai.html" class="mega-link">Industry 4.0 AI</a>
+                            <a href="dashboardai.html" class="mega-link">Dashboard AI</a>
+                            <a href="visionai.html" class="mega-link">Vision AI</a>
+                            <a href="agenticai.html" class="mega-link">Agentic AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Workforce</h4>
+                            <a href="recruitai.html" class="mega-link">Recruit AI</a>
+                            <a href="linkedinai.html" class="mega-link">LinkedIn AI</a>
+                            <a href="financeai.html" class="mega-link">Finance AI</a>
+                        </div>
+                        <div class="mega-menu-footer">
+                            <a href="../solutions.html" class="view-all-link">View All Solutions →</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../industries.html" class="nav-link">Industries</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="../contact.html" class="nav-btn nav-cta">Request Demo</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="tag" style="border-color: var(--color-voice-purple); color: var(--color-voice-purple);">
+                        Conversational AI</div>
+                    <h1>It speaks your<br><span>language.</span></h1>
+                    <p class="hero-desc">Deploy intelligent voice agents that understand the nuances of Gulf Arabic and
+                        English. Handle thousands of calls simultaneously with zero wait times.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <button class="btn">Listen to Demo</button>
+                        <button class="btn-outline">View Languages</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="waveform-container">
+                        <div class="wave-bar wb-1"></div>
+                        <div class="wave-bar wb-2"></div>
+                        <div class="wave-bar wb-3"></div>
+                        <div class="wave-bar wb-4"></div>
+                        <div class="wave-bar wb-5"></div>
+                        <div class="wave-bar wb-6"></div>
+                        <div class="wave-bar wb-2"></div>
+                        <div class="wave-bar wb-4"></div>
+                    </div>
+
+                    <div class="call-card">
+                        <div class="mic-icon"><i data-lucide="mic" size="18"></i></div>
+                        <div>
+                            <div style="font-weight:700; font-size:0.9rem;">Assistant is speaking...</div>
+                            <div style="font-size:0.8rem; color:#666;">"Welcome to Gulf AI support."</div>
+                        </div>
+                        <div
+                            style="background:#e0f2fe; padding:4px 8px; border-radius:4px; font-size:0.7rem; color:#0284c7; font-weight:700;">
+                            LIVE</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">GULF ARABIC</div>
+                <div class="ticker-item">EGYPTIAN ARABIC</div>
+                <div class="ticker-item">LEVANTINE</div>
+                <div class="ticker-item">ENGLISH (US/UK)</div>
+                <div class="ticker-item">FRENCH</div>
+                <div class="ticker-item">HINDI</div>
+                <div class="ticker-item">GULF ARABIC</div>
+                <div class="ticker-item">EGYPTIAN ARABIC</div>
+                <div class="ticker-item">LEVANTINE</div>
+                <div class="ticker-item">ENGLISH (US/UK)</div>
+                <div class="ticker-item">FRENCH</div>
+                <div class="ticker-item">HINDI</div>
+            </div>
+        </div>
+
+        <section class="flow-section">
+            <div class="container">
+                <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 20px;">The Conversation
+                    Engine</h2>
+                <p style="max-width: 600px; margin: 0 auto; color: #666;">How we process voice data in under 400ms to
+                    ensure natural flow.</p>
+
+                <div class="voice-pipeline">
+                    <div class="v-step">
+                        <div class="v-icon-lg"><i data-lucide="phone-incoming"></i></div>
+                        <h4>1. Ingest</h4>
+                        <p style="font-size:0.85rem; color:#666; margin-top:8px;">SIP Trunking / WebRTC</p>
+                    </div>
+
+                    <div class="v-arrow"><i data-lucide="arrow-right"></i></div>
+
+                    <div class="v-step">
+                        <div class="v-icon-lg"><i data-lucide="mic"></i></div>
+                        <h4>2. Transcribe</h4>
+                        <p style="font-size:0.85rem; color:#666; margin-top:8px;">Speech-to-Text (STT)</p>
+                    </div>
+
+                    <div class="v-arrow"><i data-lucide="arrow-right"></i></div>
+
+                    <div class="v-step" style="border-color:var(--color-voice-purple);">
+                        <div class="v-icon-lg" style="color:var(--color-rust-orange);"><i data-lucide="cpu"></i></div>
+                        <h4>3. Think</h4>
+                        <p style="font-size:0.85rem; color:#666; margin-top:8px;">LLM Reasoning</p>
+                    </div>
+
+                    <div class="v-arrow"><i data-lucide="arrow-right"></i></div>
+
+                    <div class="v-step">
+                        <div class="v-icon-lg"><i data-lucide="volume-2"></i></div>
+                        <h4>4. Speak</h4>
+                        <p style="font-size:0.85rem; color:#666; margin-top:8px;">Text-to-Speech (TTS)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="bento-grid">
+                    <div class="bento-card span-2 dark">
+                        <div class="card-icon"><i data-lucide="message-circle"></i></div>
+                        <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px;">Natural
+                            Conversation</h3>
+                        <p style="opacity: 0.8; font-size: 1.1rem;">It handles interruptions, "umms," and pauses just
+                            like a human. You can interrupt the AI mid-sentence, and it will stop and listen
+                            immediately.</p>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-icon"><i data-lucide="git-branch"></i></div>
+                        <h3>Smart Routing</h3>
+                        <p>If a query is too complex, the AI seamlessly transfers the call (with context) to a human
+                            agent.</p>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-icon"><i data-lucide="smile"></i></div>
+                        <h3>Sentiment Analysis</h3>
+                        <p>Real-time emotion detection allows the system to prioritize angry or distressed callers.</p>
+                    </div>
+
+                    <div class="bento-card span-2">
+                        <div class="card-icon"><i data-lucide="database"></i></div>
+                        <h3>CRM Sync</h3>
+                        <p>After every call, the AI automatically updates your CRM with a summary, transcript, and
+                            action items. No more manual data entry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="success-section">
+            <div class="container">
+                <div class="success-wrapper">
+                    <div>
+                        <div class="tag">Success Story</div>
+                        <h2 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 24px;">Property
+                            Management Firm</h2>
+                        <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 32px;">Faced with a 30% missed call
+                            rate during peak maintenance hours, they deployed Gulf AI Voice. The system now handles all
+                            initial inquiries 24/7.</p>
+                        <a href="#"
+                            style="color: var(--color-voice-purple); border-bottom: 1px solid var(--color-voice-purple); padding-bottom: 4px; font-weight: 600;">Read
+                            full case study →</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="font-family: var(--font-serif); font-size: 8rem; color: var(--color-voice-purple); line-height: 1;">
+                            100%</div>
+                        <div
+                            style="font-family: var(--font-mono); letter-spacing: 2px; margin-top: 16px; font-weight: 700;">
+                            ANSWER RATE ACHIEVED</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-cta">
+            <div class="container">
+                <h2 style="font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 40px;">Hear the difference.
+                </h2>
+                <button class="btn">Request Custom Demo</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Solutions</h3>
+                <div class="footer-divider"></div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Customer Experience →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="voiceai.html">Voice AI</a></li>
+                        <li class="footer-link-item"><a href="hospitalai.html">Hospital AI</a></li>
+                        <li class="footer-link-item"><a href="ecommerceai.html">E-commerce AI</a></li>
+                        <li class="footer-link-item"><a href="locatorai.html">Locator AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Operations →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="industry40ai.html">Industry 4.0 AI</a></li>
+                        <li class="footer-link-item"><a href="dashboardai.html">Dashboard AI</a></li>
+                        <li class="footer-link-item"><a href="visionai.html">Vision AI</a></li>
+                        <li class="footer-link-item"><a href="agenticai.html">Agentic AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Workforce & Growth →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="../about.html">About Us</a></li>
+                        <li class="footer-link-item"><a href="../about.html#team">Team</a></li>
+                        <li class="footer-link-item"><a href="../careers.html">Careers</a></li>
+                        <li class="footer-link-item"><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Resources →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="../blog.html">Blog</a></li>
+                        <li class="footer-link-item"><a href="../case-studies.html">Case Studies</a></li>
+                        <li class="footer-link-item"><a href="../security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <div class="footer-divider"></div>
+                <div class="footer-subgroup">
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="../privacy.html">Privacy Policy</a></li>
+                        <li class="footer-link-item"><a href="../terms.html">Terms of Service</a></li>
+                        <li class="footer-link-item"><a href="../data-protection.html">Data Protection</a></li>
+                        <li class="footer-link-item"><a href="../cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Get Support →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="../contact.html">Contact Support</a></li>
+                        <li class="footer-link-item"><a href="../help.html">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="../contact.html" class="btn-footer-primary">Request Consultation</a>
+                <a href="../solutions.html" class="btn-footer-secondary">View All Solutions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand">
+                <div class="striped-triangle"></div>
+                <span class="footer-big-text">gulf ai</span>
+            </div>
+            <div class="copyright-row">
+                <span>&copy; 2025 Gulf AI. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="../assets/js/main.js?v=20251202"></script>
+</body>
+
+</html>

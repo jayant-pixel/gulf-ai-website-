@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI | Gulf AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../assets/css/main.css?v=20251202">
+    <link rel="stylesheet" href="../assets/css/mega-menu.css?v=20251203">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --color-cream: #FDFBF7;
+            --color-cream-dark: #F0EFE9;
+            --color-dark-brown: #2C241B;
+            --color-rust-orange: #C15B28;
+            --color-warm-gold: #D4AF37;
+            --color-white: #FFFFFF;
+            --color-code-bg: #1A1612;
+
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'Outfit', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            --radius-md: 12px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-dark-brown);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+            font-family: var(--font-sans);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-dark-brown);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-dark-brown);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-dark-brown);
+            border: 1px solid var(--color-dark-brown);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border: 1px solid rgba(44, 36, 27, 0.2);
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 24px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(44, 36, 27, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-mark {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bar {
+            background: var(--color-dark-brown);
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .bar.l {
+            width: 24px;
+        }
+
+        .bar.m {
+            width: 16px;
+        }
+
+        .bar.s {
+            width: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media(max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 0;
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 24px;
+            color: var(--color-dark-brown);
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: #5A524A;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        /* Hero Visual - The "Thinking" Machine */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .agent-terminal {
+            width: 100%;
+            background: var(--color-code-bg);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            padding: 24px;
+            color: #00FF94;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+        }
+
+        .code-line {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .code-line.delay-1 {
+            animation-delay: 0.5s;
+        }
+
+        .code-line.delay-2 {
+            animation-delay: 1.5s;
+        }
+
+        .code-line.delay-3 {
+            animation-delay: 3s;
+        }
+
+        .code-line.delay-4 {
+            animation-delay: 4.5s;
+        }
+
+        .prompt {
+            color: var(--color-warm-gold);
+        }
+
+        .output {
+            color: #E0E0E0;
+            opacity: 0.8;
+        }
+
+        .action {
+            color: var(--color-rust-orange);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating Task Nodes */
+        .task-node {
+            position: absolute;
+            background: var(--color-white);
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            font-size: 0.9rem;
+            z-index: 2;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .node-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--color-cream-dark);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--color-rust-orange);
+        }
+
+        .t-1 {
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .t-2 {
+            bottom: 15%;
+            right: -5%;
+            animation-delay: 1.5s;
+        }
+
+        .t-3 {
+            top: 40%;
+            right: -15%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* --- LOGIC FLOW (Replaces Specs) --- */
+        .logic-flow {
+            background-color: var(--color-white);
+            padding: 100px 0;
+            border-top: 1px solid rgba(44, 36, 27, 0.05);
+            border-bottom: 1px solid rgba(44, 36, 27, 0.05);
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        /* Connecting Line */
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(to right, var(--color-dark-brown) 0, var(--color-dark-brown) 5px, transparent 5px, transparent 10px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .flow-step {
+            position: relative;
+            z-index: 1;
+            width: 22%;
+            background: var(--color-white);
+            padding-right: 20px;
+        }
+
+        .step-marker {
+            width: 48px;
+            height: 48px;
+            background: var(--color-dark-brown);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            margin-bottom: 24px;
+            border: 4px solid var(--color-white);
+        }
+
+        .step-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* --- BENTO GRID --- */
+        .features {
+            padding: 100px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .bento-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(44, 36, 27, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: var(--color-rust-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .col-2 {
+            grid-column: span 2;
+        }
+
+        .col-1 {
+            grid-column: span 1;
+        }
+
+        .row-2 {
+            grid-row: span 2;
+        }
+
+        .card-icon-lg {
+            width: 64px;
+            height: 64px;
+            background: var(--color-cream);
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            margin-bottom: auto;
+            color: var(--color-rust-orange);
+        }
+
+        /* --- SUCCESS STORY --- */
+        .success-section {
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+            padding: 100px 0;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .metric-card {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .metric-val {
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            color: var(--color-warm-gold);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-family: var(--font-mono);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 16px;
+            opacity: 0.8;
+        }
+
+        /* --- CTA --- */
+        .cta-box {
+            background: var(--color-rust-orange);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 80px;
+            text-align: center;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+                margin-top: 40px;
+            }
+
+            .t-3 {
+                right: 0;
+            }
+
+            .flow-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .flow-container::before {
+                width: 2px;
+                height: 100%;
+                top: 0;
+                left: 24px;
+            }
+
+            .flow-step {
+                width: 100%;
+                padding-left: 60px;
+            }
+
+            .step-marker {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .col-2,
+            .col-1,
+            .row-2 {
+                grid-column: auto;
+                grid-row: auto;
+                min-height: 300px;
+            }
+
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-mark">
+                <div class="bar l"></div>
+                <div class="bar m"></div>
+                <div class="bar s"></div>
+            </div>
+            Gulf AI
+        </div>
+        <div class="nav-links">
+            <a href="#" style="font-weight: 500;">Solutions</a>
+            <a href="#">Industries</a>
+            <a href="#">About</a>
+            <a href="#" class="btn-outline" style="padding: 10px 24px; border-radius: 50px;">Sign In</a>
+            <a href="#" class="btn" style="padding: 10px 24px;">Get Demo</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="tag">Autonomous Workflow</div>
+                    <h1>The employee that<br>never sleeps.</h1>
+                    <p class="hero-desc">Beyond simple chatbots. Agentic AI plans, reasons, and executes complex
+                        multi-step workflows across your apps without supervision.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <button class="btn">Deploy an Agent</button>
+                        <button class="btn-outline">Watch Video</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="task-node t-1">
+                        <div class="node-icon"><i data-lucide="mail" size="14"></i></div>
+                        Drafting Email...
+                    </div>
+                    <div class="task-node t-2">
+                        <div class="node-icon"><i data-lucide="database" size="14"></i></div>
+                        Updating CRM
+                    </div>
+                    <div class="task-node t-3">
+                        <div class="node-icon"><i data-lucide="search" size="14"></i></div>
+                        Market Research
+                    </div>
+
+                    <div class="agent-terminal">
+                        <div class="terminal-header">
+                            <div class="dot" style="background:#FF5F56"></div>
+                            <div class="dot" style="background:#FFBD2E"></div>
+                            <div class="dot" style="background:#27C93F"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="code-line">
+                                <span class="prompt">User:</span>
+                                <span>"Find upcoming legal tech conferences in Dubai and book my flight."</span>
+                            </div>
+                            <div class="code-line delay-1">
+                                <span class="action">Agent > Reasoning:</span>
+                                <span class="output">Task requires 3 steps: 1. Search Web 2. Check Calendar 3. Access
+                                    Travel API.</span>
+                            </div>
+                            <div class="code-line delay-2">
+                                <span class="action">Agent > Tool:</span>
+                                <span class="output">Executing google_search("Dubai legal tech events 2025")...</span>
+                            </div>
+                            <div class="code-line delay-3">
+                                <span class="action">Agent > Tool:</span>
+                                <span class="output">Found: "LegalAI Summit" - Oct 12. Checking calendar... Free.</span>
+                            </div>
+                            <div class="code-line delay-4">
+                                <span class="prompt">Agent:</span>
+                                <span>I've found the LegalAI Summit on Oct 12. Would you like me to book Emirates Flight
+                                    EK203?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="logic-flow">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 style="font-family: var(--font-serif); font-size: 2.5rem;">The Chain of Thought</h2>
+                    <p>How our agents solve problems autonomously.</p>
+                </div>
+
+                <div class="flow-container">
+                    <div class="flow-step">
+                        <div class="step-marker">01</div>
+                        <h3 class="step-title">Perceive</h3>
+                        <p class="step-desc">The agent ingests your request, analyzing context, tone, and constraints
+                            using standard NLP.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-marker">02</div>
+                        <h3 class="step-title">Reason</h3>
+                        <p class="step-desc">It breaks the goal into sub-tasks. "I need to check inventory before I can
+                            send this invoice."</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-marker">03</div>
+                        <h3 class="step-title">Act</h3>
+                        <p class="step-desc">The agent uses Tools (APIs, Browsers) to manipulate software just like a
+                            human would.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-marker">04</div>
+                        <h3 class="step-title">Learn</h3>
+                        <p class="step-desc">If an error occurs, the agent self-corrects and retries the workflow
+                            automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features container">
+            <div class="section-header" style="max-width: 600px;">
+                <h2 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 20px;">Capabilities</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card col-2 row-2" style="background: var(--color-cream-dark);">
+                    <div class="card-icon-lg"><i data-lucide="globe" size="32"></i></div>
+                    <div>
+                        <h3>Autonomous Research</h3>
+                        <p style="margin-top: 16px; opacity: 0.8;">Give the agent a broad topic like "Competitor
+                            analysis for Q3." It will browse the web, read 50+ articles, synthesize the data, and
+                            generate a PDF report with citations—while you sleep.</p>
+                    </div>
+                    <img src="https://placehold.co/600x300/e0dcd5/c15b28?text=Research+Visual" alt="Research Interface"
+                        style="margin-top: 32px; border-radius: 8px; opacity: 0.8;">
+                </div>
+
+                <div class="bento-card col-2">
+                    <div style="display:flex; justify-content:space-between;">
+                        <div class="card-icon-lg" style="width:48px; height:48px;"><i data-lucide="layers"
+                                size="24"></i></div>
+                    </div>
+                    <div>
+                        <h3>Workflow Automation</h3>
+                        <p>Connects to Salesforce, Jira, Slack, and Gmail to move projects forward.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card col-1">
+                    <div class="card-icon-lg" style="width:48px; height:48px;"><i data-lucide="calendar" size="24"></i>
+                    </div>
+                    <h3>Smart Scheduling</h3>
+                    <p>Negotiates meeting times via email automatically.</p>
+                </div>
+
+                <div class="bento-card col-1">
+                    <div class="card-icon-lg" style="width:48px; height:48px;"><i data-lucide="shield-check"
+                            size="24"></i></div>
+                    <h3>Human-in-the-Loop</h3>
+                    <p>Set permission levels for sensitive actions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="success-section">
+            <div class="container">
+                <div class="success-grid">
+                    <div>
+                        <div class="tag" style="border-color: rgba(255,255,255,0.3); color: var(--color-warm-gold);">
+                            Case Study: Legal</div>
+                        <h2 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 24px;">Briefs in
+                            minutes, not days.</h2>
+                        <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 32px;">A leading Dubai legal firm
+                            deployed Agentic AI to handle initial case law research. The system autonomously searches
+                            databases and prepares summary briefs for partners.</p>
+                        <a href="#"
+                            style="color: var(--color-warm-gold); border-bottom: 1px solid var(--color-warm-gold); padding-bottom: 4px;">Read
+                            full case study →</a>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-val">80%</div>
+                        <div class="metric-label">Reduction in Research Time</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to delegate?</h2>
+                <button class="btn"
+                    style="background: white; color: var(--color-rust-orange); border: none; padding: 20px 48px; font-size: 1.1rem;">Build
+                    Your Agent</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

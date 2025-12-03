@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gulf AI</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;400;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;400;600&family=DM+Sans:opsz,wght@9..40,400;500&display=swap"
+        rel="stylesheet">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20251202">
+    <link rel="stylesheet" href="assets/css/main.css?v=20251203">
+    <link rel="stylesheet" href="assets/css/mega-menu.css?v=20251203">
 </head>
+
 <body>
 
     <nav>
@@ -32,11 +37,42 @@
 
         <div class="nav-menu">
             <div class="nav-links">
-                <a href="#" class="nav-link">Overview</a>
-                <a href="#" class="nav-link">Learn</a>
-                <a href="#" class="nav-link">Company</a>
+                <div class="nav-item dropdown">
+                    <button class="nav-btn nav-dropdown-trigger">
+                        Solutions
+                        <i data-lucide="chevron-down" style="width: 12px;"></i>
+                    </button>
+                    <div class="mega-menu">
+                        <div class="mega-menu-col">
+                            <h4>Customer Experience</h4>
+                            <a href="solutions/voiceai.html" class="mega-link">Voice AI</a>
+                            <a href="solutions/hospitalai.html" class="mega-link">Hospital AI</a>
+                            <a href="solutions/ecommerceai.html" class="mega-link">E-commerce AI</a>
+                            <a href="solutions/locatorai.html" class="mega-link">Locator AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Operations</h4>
+                            <a href="solutions/industry40ai.html" class="mega-link">Industry 4.0 AI</a>
+                            <a href="solutions/dashboardai.html" class="mega-link">Dashboard AI</a>
+                            <a href="solutions/visionai.html" class="mega-link">Vision AI</a>
+                            <a href="solutions/agenticai.html" class="mega-link">Agentic AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Workforce</h4>
+                            <a href="solutions/recruitai.html" class="mega-link">Recruit AI</a>
+                            <a href="solutions/linkedinai.html" class="mega-link">LinkedIn AI</a>
+                            <a href="solutions/financeai.html" class="mega-link">Finance AI</a>
+                        </div>
+                        <div class="mega-menu-footer">
+                            <a href="solutions.html" class="view-all-link">View All Solutions →</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="industries.html" class="nav-link">Industries</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            <a href="#" class="nav-btn nav-cta">Request Demo</a>
+            <a href="contact.html" class="nav-btn nav-cta">Request Demo</a>
         </div>
     </nav>
 
@@ -44,19 +80,24 @@
         <div class="hero-content">
             <h1>AI Solutions Built for the UAE Business</h1>
             <p class="subtext">
-                Gulf AI Delivers Intelligent Automation Systems Tailored to Middle Eastern Markets Supporting Arabic and English
+                Gulf AI Delivers Intelligent Automation Systems Tailored to Middle Eastern Markets Supporting Arabic and
+                English
             </p>
             <div class="button-position-wrapper">
-                <button class="cta-button">Request Demo</button>
+                <a href="contact.html" class="cta-button" style="text-decoration: none; display: inline-block;">Request
+                    Demo</a>
             </div>
         </div>
 
         <div class="image-container">
             <picture>
-                <source media="(max-width: 900px)" srcset="https://res.cloudinary.com/dslutbftw/image/upload/v1764527812/mobile_screen_web_tvwtgg.png">
-                <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764511677/Generated_Image_November_30_2025_-_7_03PM_1_gleran.png" alt="AI Finance Control Panel" class="hero-image desktop">
+                <source media="(max-width: 900px)"
+                    srcset="https://res.cloudinary.com/dslutbftw/image/upload/v1764527812/mobile_screen_web_tvwtgg.png">
+                <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764511677/Generated_Image_November_30_2025_-_7_03PM_1_gleran.png"
+                    alt="AI Finance Control Panel" class="hero-image desktop">
             </picture>
-            <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764527812/mobile_screen_web_tvwtgg.png" class="hero-image mobile" alt="Mobile AI View">
+            <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764527812/mobile_screen_web_tvwtgg.png"
+                class="hero-image mobile" alt="Mobile AI View">
         </div>
     </header>
 
@@ -83,75 +124,159 @@
         </div>
     </section>
 
+    <section class="features-section" id="featureSection">
+        <div class="header-container">
+            <span class="sub-heading">Core Capabilities</span>
+            <h1 class="main-heading">Strategic Solutions for Digital Transformation</h1>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Customer Experience</h3>
+                <p class="feature-desc">
+                    Deploy intelligent voice and chat systems that provide consistent, bilingual customer support across
+                    all channels.
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Operational Intelligence</h3>
+                <p class="feature-desc">
+                    Implement predictive analytics, process automation, and real-time monitoring systems that provide
+                    actionable insights.
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Workforce Optimization</h3>
+                <p class="feature-desc">
+                    Streamline recruitment, onboarding, and talent management with AI-assisted screening and matching
+                    systems.
+                </p>
+            </div>
+        </div>
+    </section>
     <section class="automation-section">
         <div class="automation-wrapper">
-            
+
             <div class="automation-top-row">
                 <h1 class="automation-title">Intelligent Automation for Modern UAE Businesses</h1>
                 <button class="btn-partner">Partner With Us</button>
             </div>
 
             <div class="automation-card">
-                
+
                 <div class="automation-image-col">
                     <div class="automation-img-container">
-                        <img 
-                            id="automation-main-image"
-                            src="https://res.cloudinary.com/dslutbftw/image/upload/v1764587884/Generated_Image_December_01_2025_-_4_46PM_1_atzwcb.jpg" 
-                            alt="Visual Representation" 
-                            class="auto-img"
-                        />
+                        <img id="automation-main-image"
+                            src="https://res.cloudinary.com/dslutbftw/image/upload/v1764587884/Generated_Image_December_01_2025_-_4_46PM_1_atzwcb.jpg"
+                            alt="Industry Representation" class="auto-img" />
                         <div class="auto-img-overlay"></div>
                     </div>
                 </div>
 
                 <div class="automation-content-col">
                     <div class="automation-content-header">
-                        <h2>Our Areas of Expertise</h2>
+                        <h2>Industries We Serve</h2>
                     </div>
-                    
+
                     <div class="accordion-container">
-                        
-                        <div class="accordion-item active" data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587884/Generated_Image_December_01_2025_-_4_46PM_1_atzwcb.jpg">
+
+                        <div class="accordion-item active"
+                            data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587884/Generated_Image_December_01_2025_-_4_46PM_1_atzwcb.jpg">
                             <div class="accordion-row">
                                 <div class="accordion-icon">
-                                    <i data-lucide="message-circle"></i>
+                                    <i data-lucide="activity"></i>
                                 </div>
                                 <div class="accordion-text-wrapper">
-                                    <h3>Customer Experience</h3>
+                                    <h3>Healthcare</h3>
                                     <div class="accordion-content">
-                                        <p>Deploy intelligent voice and chat systems that provide consistent, bilingual customer support across all channels.</p>
-                                        <a href="#" class="accordion-link">Learn more <i data-lucide="arrow-right"></i></a>
+                                        <p>Enhance patient care with AI-driven diagnostics, automated scheduling, and
+                                            compliant data management systems.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="accordion-item" data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587933/Generated_Image_December_01_2025_-_4_46PM_2_snthwh.jpg">
+                        <div class="accordion-item"
+                            data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587933/Generated_Image_December_01_2025_-_4_46PM_2_snthwh.jpg">
                             <div class="accordion-row">
                                 <div class="accordion-icon">
-                                    <i data-lucide="cpu"></i>
+                                    <i data-lucide="landmark"></i>
                                 </div>
                                 <div class="accordion-text-wrapper">
-                                    <h3>Operational Intelligence</h3>
+                                    <h3>Financial Services</h3>
                                     <div class="accordion-content">
-                                        <p>Implement predictive analytics, process automation, and real-time monitoring systems that provide actionable insights.</p>
-                                        <a href="#" class="accordion-link">Learn more <i data-lucide="arrow-right"></i></a>
+                                        <p>Secure operations with automated fraud detection, algorithmic trading
+                                            insights, and personalized banking support.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="accordion-item" data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587834/Generated_Image_December_01_2025_-_4_46PM_xml2xs.jpg">
+                        <div class="accordion-item"
+                            data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587834/Generated_Image_December_01_2025_-_4_46PM_xml2xs.jpg">
                             <div class="accordion-row">
                                 <div class="accordion-icon">
-                                    <i data-lucide="users"></i>
+                                    <i data-lucide="factory"></i>
                                 </div>
                                 <div class="accordion-text-wrapper">
-                                    <h3>Workforce Optimization</h3>
+                                    <h3>Manufacturing</h3>
                                     <div class="accordion-content">
-                                        <p>Streamline recruitment, onboarding, and talent management with AI-assisted screening and matching systems.</p>
-                                        <a href="#" class="accordion-link">Learn more <i data-lucide="arrow-right"></i></a>
+                                        <p>Optimize production lines with predictive maintenance models, quality control
+                                            automation, and robotics integration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item"
+                            data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587884/Generated_Image_December_01_2025_-_4_46PM_1_atzwcb.jpg">
+                            <div class="accordion-row">
+                                <div class="accordion-icon">
+                                    <i data-lucide="shopping-cart"></i>
+                                </div>
+                                <div class="accordion-text-wrapper">
+                                    <h3>Retail & E-commerce</h3>
+                                    <div class="accordion-content">
+                                        <p>Drive sales with personalized recommendation engines, automated inventory
+                                            tracking, and 24/7 customer support bots.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item"
+                            data-image="https://res.cloudinary.com/dslutbftw/image/upload/v1764587933/Generated_Image_December_01_2025_-_4_46PM_2_snthwh.jpg">
+                            <div class="accordion-row">
+                                <div class="accordion-icon">
+                                    <i data-lucide="truck"></i>
+                                </div>
+                                <div class="accordion-text-wrapper">
+                                    <h3>Logistics</h3>
+                                    <div class="accordion-content">
+                                        <p>Streamline supply chains with intelligent route optimization, real-time fleet
+                                            tracking, and automated warehouse management.</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,47 +288,161 @@
         </div>
     </section>
 
-    <section class="sectors-section">
-        <div class="sectors-container">
-            <h2 class="sectors-header">Sectors We Serve</h2>
-            <div class="sectors-grid">
-                <div class="sector-card">
-                    <div class="sector-image-wrapper">
-                        <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764592888/Generated_Image_December_01_2025_-_5_54PM_1_u77pqc.jpg" alt="Healthcare Systems">
-                    </div>
-                    <div class="sector-content">
-                        <span class="sector-tag">Patient Care</span>
-                        <h3>Healthcare</h3>
-                        <p>Patient communication platforms, appointment scheduling systems, inquiry management, and multilingual support for hospitals and medical facilities.</p>
-                    </div>
-                </div>
-                <div class="sector-card tall-card">
-                    <div class="sector-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2612&auto=format&fit=crop" alt="Financial Compliance">
-                    </div>
-                    <div class="sector-content">
-                        <span class="sector-tag">Security & Compliance</span>
-                        <h3>Financial Services</h3>
-                        <p>Compliance monitoring, fraud detection systems, transaction analysis, and automated regulatory reporting for banks and financial institutions.</p>
-                    </div>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" alt="Manufacturing Operations">
-                    </div>
-                    <div class="sector-content">
-                        <span class="sector-tag">Operations</span>
-                        <h3>Manufacturing</h3>
-                        <p>Predictive maintenance, production optimization, quality control systems, and supply chain management solutions.</p>
-                    </div>
+    <section class="solutions-wrapper" id="solutions-section">
+        <div class="solutions-container">
+            <div class="section-header">
+                <h2>Solutions</h2>
+                <div class="nav-controls">
+                    <button id="prevBtn" aria-label="Previous">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button id="nextBtn" aria-label="Next">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <div class="sectors-btn-wrapper">
-                <button class="btn-learn">Learn more</button>
+
+            <div class="carousel-container" id="carousel">
+                <a href="solutions/voiceai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Voice Tech</span>
+                    <div class="card-content">
+                        <h3>Voice AI</h3>
+                        <p>Interactive voice commands and bots for web platforms.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/hospitalai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Healthcare</span>
+                    <div class="card-content">
+                        <h3>Hospital AI</h3>
+                        <p>Automated patient inquiries and voice scheduling.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/ecommerceai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Retail</span>
+                    <div class="card-content">
+                        <h3>E-commerce AI</h3>
+                        <p>Hands-free shopping assistants and navigation.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/locatorai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Navigation</span>
+                    <div class="card-content">
+                        <h3>Locator AI</h3>
+                        <p>Pinpoint product locations in malls and warehouses.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/industry40ai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1565514020176-dbf2277f260e?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Manufacturing</span>
+                    <div class="card-content">
+                        <h3>Industry 4.0 AI</h3>
+                        <p>Smart factory integration and production optimization.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/dashboardai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Analytics</span>
+                    <div class="card-content">
+                        <h3>Dashboard AI</h3>
+                        <p>Unified executive summaries and KPI visualization.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/visionai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Security</span>
+                    <div class="card-content">
+                        <h3>Vision AI</h3>
+                        <p>CCTV analytics for compliance and safety monitoring.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/agenticai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1662579998863-7ea4c39c894e?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Automation</span>
+                    <div class="card-content">
+                        <h3>Agentic AI</h3>
+                        <p>Next-level RPA for complex document verification.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/recruitai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">HR Tech</span>
+                    <div class="card-content">
+                        <h3>Recruit AI</h3>
+                        <p>Automated resume screening and voice interviews.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/linkedinai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Networking</span>
+                    <div class="card-content">
+                        <h3>LinkedIn AI</h3>
+                        <p>Chrome extension for lead generation automation.</p>
+                    </div>
+                </a>
+
+                <a href="solutions/financeai.html" class="sol-card">
+                    <div class="card-image-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <span class="card-tag">Finance</span>
+                    <div class="card-content">
+                        <h3>Finance AI</h3>
+                        <p>Automated auditing, fraud detection, and processing.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
-
     <section class="methodology-section">
         <div class="methodology-container">
             <div class="method-left">
@@ -215,22 +454,29 @@
                 <div class="method-card">
                     <div class="method-icon-box"><i data-lucide="search"></i></div>
                     <h3>Discovery & Assessment</h3>
-                    <p>We begin by understanding your operational challenges, existing infrastructure, and business objectives. This assessment phase identifies opportunities where AI can deliver measurable impact.</p>
+                    <p>We begin by understanding your operational challenges, existing infrastructure, and business
+                        objectives. This assessment phase identifies opportunities where AI can deliver measurable
+                        impact.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon-box"><i data-lucide="pencil-ruler"></i></div>
                     <h3>Solution Design</h3>
-                    <p>Our team architects custom solutions that align with your technical environment, compliance requirements, and organizational workflow. All systems are designed for Arabic-English bilingual operation and UAE regulatory compliance.</p>
+                    <p>Our team architects custom solutions that align with your technical environment, compliance
+                        requirements, and organizational workflow. All systems are designed for Arabic-English bilingual
+                        operation and UAE regulatory compliance.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon-box"><i data-lucide="rocket"></i></div>
                     <h3>Deployment & Integration</h3>
-                    <p>We handle the complete implementation process, including system integration, data migration, testing protocols, and staff training. Our phased deployment approach minimizes disruption to ongoing operations.</p>
+                    <p>We handle the complete implementation process, including system integration, data migration,
+                        testing protocols, and staff training. Our phased deployment approach minimizes disruption to
+                        ongoing operations.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon-box"><i data-lucide="activity"></i></div>
                     <h3>Optimization & Support</h3>
-                    <p>Post-deployment, we provide ongoing monitoring, performance optimization, and technical support to ensure sustained value delivery and system evolution as your needs change.</p>
+                    <p>Post-deployment, we provide ongoing monitoring, performance optimization, and technical support
+                        to ensure sustained value delivery and system evolution as your needs change.</p>
                 </div>
             </div>
         </div>
@@ -240,7 +486,8 @@
         <h2 class="section-label">Client Success Stories</h2>
 
         <div class="quote-container active" id="quote-display">
-            <h1 class="quote-text">“We're delighted with AREA 17's work—exceptional design, a user experience that solved business challenges, and optimized lead generation.”</h1>
+            <h1 class="quote-text">“We're delighted with AREA 17's work—exceptional design, a user experience that
+                solved business challenges, and optimized lead generation.”</h1>
         </div>
 
         <div class="testimonial-footer">
@@ -270,15 +517,18 @@
     </section>
 
     <section class="mad-libs-section">
-        <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764569687/Left_image_final_cta_xcdnoc.png" class="cta-image-left" alt="Robot AI">
-        <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764569748/right_image_final_cta_tcw3fn.png" class="cta-image-right" alt="Business Woman">
+        <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764569687/Left_image_final_cta_xcdnoc.png"
+            class="cta-image-left" alt="Robot AI">
+        <img src="https://res.cloudinary.com/dslutbftw/image/upload/v1764569748/right_image_final_cta_tcw3fn.png"
+            class="cta-image-right" alt="Business Woman">
 
         <div class="mad-libs-content">
             <h2 class="mad-header">Connect</h2>
             <form id="contactForm">
                 <div class="mad-form">
                     <div class="mad-line"><span class="mad-text">Hello,</span></div>
-                    <div class="mad-line"><span class="mad-text">My name is</span><input type="text" class="mad-input" placeholder="Your Name" required></div>
+                    <div class="mad-line"><span class="mad-text">My name is</span><input type="text" class="mad-input"
+                            placeholder="Your Name" required></div>
                     <div class="mad-line"><span class="mad-text">I work for a/an</span>
                         <div class="mad-select-wrapper">
                             <select class="mad-select" aria-label="Organization type" title="Organization type">
@@ -301,7 +551,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="mad-line"><span class="mad-text">You can email me at</span><input type="email" class="mad-input" placeholder="email@address.com" required></div>
+                    <div class="mad-line"><span class="mad-text">You can email me at</span><input type="email"
+                            class="mad-input" placeholder="email@address.com" required></div>
                 </div>
                 <div class="mad-submit-container"><button type="submit" class="mad-submit-btn">Submit</button></div>
             </form>
@@ -316,62 +567,36 @@
                 <div class="footer-subgroup">
                     <h4 class="footer-sub-title">Customer Experience →</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/solutions/voiceai">Voice AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/hospitalai">Hospital AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/ecommerceai">E-commerce AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/locatorai">Locator AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/voiceai.html">Voice AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/hospitalai.html">Hospital AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/ecommerceai.html">E-commerce AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/locatorai.html">Locator AI</a></li>
                     </ul>
                 </div>
                 <div class="footer-subgroup">
                     <h4 class="footer-sub-title">Operations →</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/solutions/industry40ai">Industry 4.0 AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/dashboardai">Dashboard AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/visionai">Vision AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/agenticai">Agentic AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/industry40ai.html">Industry 4.0 AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/dashboardai.html">Dashboard AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/visionai.html">Vision AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/agenticai.html">Agentic AI</a></li>
                     </ul>
                 </div>
                 <div class="footer-subgroup">
                     <h4 class="footer-sub-title">Workforce & Growth →</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/solutions/recruitai">Recruit AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/linkedinai">LinkedIn AI</a></li>
-                        <li class="footer-link-item"><a href="/solutions/financeai">Finance AI</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Industries</h3>
-                <div class="footer-divider"></div>
-                <div class="footer-subgroup">
-                    <h4 class="footer-sub-title">Sectors →</h4>
-                    <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/industries#healthcare">Healthcare</a></li>
-                        <li class="footer-link-item"><a href="/industries#financial">Financial Services</a></li>
-                        <li class="footer-link-item"><a href="/industries#manufacturing">Manufacturing</a></li>
-                        <li class="footer-link-item"><a href="/industries#retail">Retail & E-commerce</a></li>
-                        <li class="footer-link-item"><a href="/industries#logistics">Logistics</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Company</h3>
-                <div class="footer-divider"></div>
-                <div class="footer-subgroup">
-                    <h4 class="footer-sub-title">About Gulf AI →</h4>
-                    <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/about">About Us</a></li>
-                        <li class="footer-link-item"><a href="/about#team">Team</a></li>
-                        <li class="footer-link-item"><a href="/careers">Careers</a></li>
-                        <li class="footer-link-item"><a href="/contact">Contact</a></li>
+                        <li class="footer-link-item"><a href="about.html">About Us</a></li>
+                        <li class="footer-link-item"><a href="about.html#team">Team</a></li>
+                        <li class="footer-link-item"><a href="careers.html">Careers</a></li>
+                        <li class="footer-link-item"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-subgroup">
                     <h4 class="footer-sub-title">Resources →</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/blog">Blog</a></li>
-                        <li class="footer-link-item"><a href="/case-studies">Case Studies</a></li>
-                        <li class="footer-link-item"><a href="/security">Security</a></li>
+                        <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+                        <li class="footer-link-item"><a href="case-studies.html">Case Studies</a></li>
+                        <li class="footer-link-item"><a href="security.html">Security</a></li>
                     </ul>
                 </div>
             </div>
@@ -380,23 +605,23 @@
                 <div class="footer-divider"></div>
                 <div class="footer-subgroup">
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/privacy">Privacy Policy</a></li>
-                        <li class="footer-link-item"><a href="/terms">Terms of Service</a></li>
-                        <li class="footer-link-item"><a href="/data-protection">Data Protection</a></li>
-                        <li class="footer-link-item"><a href="/cookies">Cookie Policy</a></li>
+                        <li class="footer-link-item"><a href="privacy.html">Privacy Policy</a></li>
+                        <li class="footer-link-item"><a href="terms.html">Terms of Service</a></li>
+                        <li class="footer-link-item"><a href="data-protection.html">Data Protection</a></li>
+                        <li class="footer-link-item"><a href="cookies.html">Cookie Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-subgroup">
                     <h4 class="footer-sub-title">Get Support →</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><a href="/contact">Contact Support</a></li>
-                        <li class="footer-link-item"><a href="/help">Help Center</a></li>
+                        <li class="footer-link-item"><a href="contact.html">Contact Support</a></li>
+                        <li class="footer-link-item"><a href="help.html">Help Center</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-actions">
-                <a href="/contact" class="btn-footer-primary">Request Consultation</a>
-                <a href="/solutions" class="btn-footer-secondary">View All Solutions</a>
+                <a href="contact.html" class="btn-footer-primary">Request Consultation</a>
+                <a href="solutions.html" class="btn-footer-secondary">View All Solutions</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -410,6 +635,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20251202"></script>
+    <script src="assets/js/main.js?v=20251203"></script>
 </body>
+
 </html>

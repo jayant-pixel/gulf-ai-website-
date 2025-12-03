@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Gulf AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/main.css?v=20251202">
+    <link rel="stylesheet" href="assets/css/mega-menu.css?v=20251203">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --color-cream: #FDFBF7;
+            --color-cream-dark: #F0EFE9;
+            --color-dark-brown: #2C241B;
+            --color-rust-orange: #C15B28;
+            --color-warm-gold: #D4AF37;
+            --color-white: #FFFFFF;
+
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'Outfit', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-dark-brown);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+            font-family: var(--font-sans);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--color-dark-brown);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-dark-brown);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background-color: transparent;
+            color: var(--color-dark-brown);
+            border: 1px solid var(--color-dark-brown);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-dark-brown);
+            color: var(--color-cream);
+        }
+
+        /* --- HERO SECTION --- */
+        .about-hero {
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 5.5rem;
+            line-height: 0.9;
+            color: var(--color-dark-brown);
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title span {
+            color: var(--color-rust-orange);
+            font-style: italic;
+        }
+
+        .hero-lead {
+            font-size: 1.5rem;
+            max-width: 600px;
+            line-height: 1.4;
+            opacity: 0.9;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Constellation Background */
+        .constellation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--color-dark-brown);
+            border-radius: 50%;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* --- MANIFESTO SECTION --- */
+        .manifesto-section {
+            padding: 100px 0;
+            background: var(--color-white);
+            border-top: 1px solid rgba(44, 36, 27, 0.1);
+        }
+
+        .manifesto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .manifesto-text h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .manifesto-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 24px;
+        }
+
+        .quote-box {
+            border-left: 4px solid var(--color-warm-gold);
+            padding-left: 24px;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-dark-brown);
+            margin: 40px 0;
+        }
+
+        /* --- STATS STRIP --- */
+        .stats-strip {
+            background: var(--color-dark-brown);
+            color: var(--color-cream);
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--color-warm-gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        /* --- METHODOLOGY (CODED DIAGRAM) --- */
+        .method-section {
+            padding: 120px 0;
+            background-color: var(--color-cream);
+        }
+
+        .method-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        /* Consultancy Framework Container */
+        .consultancy-wrapper {
+            background: var(--color-white);
+            border: 1px dashed rgba(44, 36, 27, 0.2);
+            border-radius: 20px;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultancy-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* The Connecting Line */
+        .consultancy-flow::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: var(--color-cream-dark);
+            z-index: 0;
+        }
+
+        /* Animated Progress Line */
+        .consultancy-flow::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            width: 0%;
+            height: 2px;
+            background: var(--color-rust-orange);
+            z-index: 0;
+            animation: flowLine 4s infinite ease-in-out;
+        }
+
+        @keyframes flowLine {
+            0% {
+                width: 0;
+                left: 10%;
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            100% {
+                width: 80%;
+                left: 10%;
+                opacity: 0;
+            }
+        }
+
+        .flow-step {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .step-icon-box {
+            width: 80px;
+            height: 80px;
+            background: var(--color-white);
+            border: 2px solid var(--color-dark-brown);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 24px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Active State Animation for Icons */
+        .flow-step:nth-child(1) .step-icon-box {
+            animation: pulseBorder 4s infinite 0s;
+        }
+
+        .flow-step:nth-child(2) .step-icon-box {
+            animation: pulseBorder 4s infinite 1.3s;
+        }
+
+        .flow-step:nth-child(3) .step-icon-box {
+            animation: pulseBorder 4s infinite 2.6s;
+        }
+
+        @keyframes pulseBorder {
+            0% {
+                border-color: var(--color-dark-brown);
+                box-shadow: 0 0 0 0 rgba(44, 36, 27, 0);
+            }
+
+            15% {
+                border-color: var(--color-rust-orange);
+                box-shadow: 0 0 0 10px rgba(193, 91, 40, 0.1);
+            }
+
+            30% {
+                border-color: var(--color-dark-brown);
+                box-shadow: 0 0 0 0 rgba(44, 36, 27, 0);
+            }
+        }
+
+        .step-title {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+            color: var(--color-dark-brown);
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .diagram-caption {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 40px;
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- VALUES GRID --- */
+        .values-section {
+            padding: 100px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-card {
+            padding: 32px;
+            background: var(--color-cream-dark);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            color: var(--color-rust-orange);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* --- LEADERSHIP --- */
+        .team-section {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .member-card {
+            background: var(--color-cream);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .member-img {
+            height: 300px;
+            background: #e0e0e0;
+            position: relative;
+        }
+
+        .placeholder-face {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #f0f0f0, #d0d0d0);
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.1);
+        }
+
+        .member-info {
+            padding: 24px;
+        }
+
+        .member-role {
+            font-family: var(--font-mono);
+            color: var(--color-rust-orange);
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+
+        .member-name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* --- CTA --- */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: radial-gradient(circle, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+        }
+
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .manifesto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Diagram Mobile */
+            .consultancy-flow {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .consultancy-flow::before,
+            .consultancy-flow::after {
+                width: 2px;
+                height: 80%;
+                left: 50%;
+                top: 40px;
+                transform: translateX(-50%);
+            }
+
+            .consultancy-flow::after {
+                height: 0;
+                animation: flowLineVert 4s infinite ease-in-out;
+            }
+
+            @keyframes flowLineVert {
+                0% {
+                    height: 0;
+                    top: 40px;
+                    opacity: 0;
+                }
+
+                30% {
+                    opacity: 1;
+                }
+
+                100% {
+                    height: 80%;
+                    top: 40px;
+                    opacity: 0;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <div class="logo-icon-wrapper">
+                <div class="logo-bar lg"></div>
+                <div class="logo-bar md"></div>
+                <div class="logo-bar sm"></div>
+            </div>
+            <span>gulf ai</span>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu">
+            <div class="nav-links">
+                <div class="nav-item dropdown">
+                    <button class="nav-btn nav-dropdown-trigger">
+                        Solutions
+                        <i data-lucide="chevron-down" style="width: 12px;"></i>
+                    </button>
+                    <div class="mega-menu">
+                        <div class="mega-menu-col">
+                            <h4>Customer Experience</h4>
+                            <a href="solutions/voiceai.html" class="mega-link">Voice AI</a>
+                            <a href="solutions/hospitalai.html" class="mega-link">Hospital AI</a>
+                            <a href="solutions/ecommerceai.html" class="mega-link">E-commerce AI</a>
+                            <a href="solutions/locatorai.html" class="mega-link">Locator AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Operations</h4>
+                            <a href="solutions/industry40ai.html" class="mega-link">Industry 4.0 AI</a>
+                            <a href="solutions/dashboardai.html" class="mega-link">Dashboard AI</a>
+                            <a href="solutions/visionai.html" class="mega-link">Vision AI</a>
+                            <a href="solutions/agenticai.html" class="mega-link">Agentic AI</a>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Workforce</h4>
+                            <a href="solutions/recruitai.html" class="mega-link">Recruit AI</a>
+                            <a href="solutions/linkedinai.html" class="mega-link">LinkedIn AI</a>
+                            <a href="solutions/financeai.html" class="mega-link">Finance AI</a>
+                        </div>
+                        <div class="mega-menu-footer">
+                            <a href="solutions.html" class="view-all-link">View All Solutions →</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="industries.html" class="nav-link">Industries</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="nav-btn nav-cta">Request Demo</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="about-hero">
+            <div class="container">
+                <div class="constellation">
+                    <div class="star" style="top:20%; left:20%; width:4px; height:4px; animation-delay:0s;"></div>
+                    <div class="star" style="top:50%; left:50%; width:6px; height:6px; animation-delay:1s;"></div>
+                    <div class="star" style="top:80%; left:30%; width:3px; height:3px; animation-delay:2s;"></div>
+                    <div class="star" style="top:30%; left:80%; width:5px; height:5px; animation-delay:1.5s;"></div>
+                </div>
+
+                <h1 class="hero-title">Architects of the<br><span>Intelligent Enterprise.</span></h1>
+                <p class="hero-lead">We are the bridge between legacy infrastructure and the AI future. A premier IT
+                    services consultancy built for the Gulf's most ambitious organizations.</p>
+
+                <a href="#manifesto" class="btn-outline" style="border-width: 2px;">Read Our Manifesto &darr;</a>
+            </div>
+        </section>
+
+        <div class="stats-strip">
+            <div class="container">
+                <div class="stats-grid">
+                    <div>
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label">Enterprise Deployments</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">1.5y</div>
+                        <div class="stat-label">R&D in Generative AI</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">24/7</div>
+                        <div class="stat-label">Local Support Hubs</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">Data Residency Compliant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="manifesto" class="manifesto-section">
+            <div class="container">
+                <div class="manifesto-grid">
+                    <div class="manifesto-text">
+                        <span class="tag">Our Philosophy</span>
+                        <h2>We don't just write code. We rewrite business logic.</h2>
+                        <div class="quote-box">
+                            "AI isn't a plugin. It's the new operating system for your entire organization."
+                        </div>
+                        <p>In a region defined by rapid transformation, standard off-the-shelf software isn't enough.
+                            Gulf AI was founded on a simple premise: The Gulf needs technology partners, not just
+                            vendors.</p>
+                        <p>We combine deep regional knowledge—understanding everything from dialect nuances in Voice AI
+                            to Central Bank regulations in Finance—with world-class engineering.</p>
+                    </div>
+                    <div style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+                            alt="Modern Architecture"
+                            style="width: 100%; border-radius: 20px; filter: grayscale(100%) sepia(20%); opacity: 0.9;">
+                        <div
+                            style="position: absolute; bottom: -30px; left: -30px; background: var(--color-rust-orange); color: white; padding: 30px; border-radius: 12px; max-width: 200px;">
+                            <span style="font-family: var(--font-mono); font-size: 3rem;">HQ</span><br>
+                            <span style="font-family: var(--font-serif);">Dubai, UAE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="method-section">
+            <div class="container">
+                <div class="method-header">
+                    <h2 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 20px;">The Engineering
+                        Blueprint</h2>
+                    <p>We follow a rigorous consultancy framework to ensure your AI investment delivers ROI from Day 1.
+                    </p>
+                </div>
+
+                <div class="consultancy-wrapper">
+                    <span class="diagram-caption">Gulf AI Engagement Model</span>
+
+                    <div class="consultancy-flow">
+                        <div class="flow-step">
+                            <div class="step-icon-box">
+                                <i data-lucide="scan-search" size="32" color="var(--color-rust-orange)"></i>
+                            </div>
+                            <h3 class="step-title">Assess</h3>
+                            <p class="step-desc">We audit your legacy infrastructure, identify data silos, and pinpoint
+                                high-impact AI opportunities.</p>
+                        </div>
+
+                        <div class="flow-step">
+                            <div class="step-icon-box">
+                                <i data-lucide="drafting-compass" size="32" color="var(--color-rust-orange)"></i>
+                            </div>
+                            <h3 class="step-title">Architect</h3>
+                            <p class="step-desc">We design secure, scalable custom models tailored to your specific data
+                                residency and compliance needs.</p>
+                        </div>
+
+                        <div class="flow-step">
+                            <div class="step-icon-box">
+                                <i data-lucide="rocket" size="32" color="var(--color-rust-orange)"></i>
+                            </div>
+                            <h3 class="step-title">Accelerate</h3>
+                            <p class="step-desc">We deploy production-ready agents that integrate seamlessly with your
+                                ERPs, scaling as you grow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <h2 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 60px;">Why Enterprises Trust
+                    Us</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Sovereign Security</h3>
+                        <p>We understand the importance of data residency. We deploy on-premise or in local cloud
+                            regions to ensure your data never leaves the borders unless you want it to.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i data-lucide="cpu"></i></div>
+                        <h3>Hardware Agnostic</h3>
+                        <p>We don't force you to rip and replace. Our AI agents integrate with your existing cameras,
+                            servers, and legacy ERP systems (SAP, Oracle, Microsoft).</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i data-lucide="globe"></i></div>
+                        <h3>Cultural Fluency</h3>
+                        <p>Our NLP models are fine-tuned for Gulf dialects and business etiquette. We build technology
+                            that feels local, not imported.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h2 style="font-family: var(--font-serif); font-size: 3rem;">Leadership</h2>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-img">
+                            <div class="placeholder-face">JM</div>
+                        </div>
+                        <div class="member-info">
+                            <div class="member-role">FOUNDER & CEO</div>
+                            <h3 class="member-name">Jayanth</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">1.5+ years experience in AI tools and prompt
+                                engineering. Teaching community classes on AI adoption.</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img">
+                            <div class="placeholder-face">SK</div>
+                        </div>
+                        <div class="member-info">
+                            <div class="member-role">CTO</div>
+                            <h3 class="member-name">Sundeep</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">Lead architect for multi-agent systems and
+                                enterprise integrations.</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img">
+                            <div class="placeholder-face">...</div>
+                        </div>
+                        <div class="member-info">
+                            <div class="member-role">HEAD OF OPERATIONS</div>
+                            <h3 class="member-name">Join Our Team</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">We are looking for visionary leaders to help
+                                build the future.</p>
+                            <a href="#"
+                                style="text-decoration: underline; font-size: 0.85rem; margin-top: 8px; display: block;">View
+                                Careers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 style="font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 30px;">Your Transformation
+                    Starts Here.</h2>
+                <button class="btn">Schedule Discovery Call</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Solutions</h3>
+                <div class="footer-divider"></div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Customer Experience →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="solutions/voiceai.html">Voice AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/hospitalai.html">Hospital AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/ecommerceai.html">E-commerce AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/locatorai.html">Locator AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Operations →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="solutions/industry40ai.html">Industry 4.0 AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/dashboardai.html">Dashboard AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/visionai.html">Vision AI</a></li>
+                        <li class="footer-link-item"><a href="solutions/agenticai.html">Agentic AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Workforce & Growth →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="about.html">About Us</a></li>
+                        <li class="footer-link-item"><a href="about.html#team">Team</a></li>
+                        <li class="footer-link-item"><a href="careers.html">Careers</a></li>
+                        <li class="footer-link-item"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Resources →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+                        <li class="footer-link-item"><a href="case-studies.html">Case Studies</a></li>
+                        <li class="footer-link-item"><a href="security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <div class="footer-divider"></div>
+                <div class="footer-subgroup">
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="privacy.html">Privacy Policy</a></li>
+                        <li class="footer-link-item"><a href="terms.html">Terms of Service</a></li>
+                        <li class="footer-link-item"><a href="data-protection.html">Data Protection</a></li>
+                        <li class="footer-link-item"><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subgroup">
+                    <h4 class="footer-sub-title">Get Support →</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="contact.html">Contact Support</a></li>
+                        <li class="footer-link-item"><a href="help.html">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="contact.html" class="btn-footer-primary">Request Consultation</a>
+                <a href="solutions.html" class="btn-footer-secondary">View All Solutions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand">
+                <div class="striped-triangle"></div>
+                <span class="footer-big-text">gulf ai</span>
+            </div>
+            <div class="copyright-row">
+                <span>&copy; 2025 Gulf AI. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/main.js?v=20251202"></script>
+</body>
+
+</html>

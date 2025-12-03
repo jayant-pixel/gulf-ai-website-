@@ -1,0 +1,147 @@
+/* --- MEGA-MENU NAVIGATION STYLES --- */
+.nav-item {
+    position: relative;
+}
+
+.nav-item.dropdown .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    color: #38281E;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+
+.nav-item.dropdown .nav-dropdown-trigger:hover {
+    opacity: 0.7;
+}
+
+/* Mega Menu Dropdown */
+.mega-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FDFBF7;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    min-width: 600px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 100;
+    border: 1px solid rgba(56, 40, 30, 0.08);
+}
+
+/* Create an invisible bridge between button and menu to prevent closing */
+.nav-item.dropdown::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+    z-index: 99;
+}
+
+/* Show menu on hover or active state - FIXED: visibility set to visible */
+.nav-item.dropdown:hover .mega-menu,
+.nav-item.dropdown.active .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: all;
+}
+
+/* Menu columns */
+.mega-menu-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-menu-col h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #38281E;
+    margin-bottom: 4px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Menu links */
+.mega-link {
+    color: #38281E;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.mega-link:hover {
+    background: rgba(186, 93, 56, 0.08);
+    color: #BA5D38;
+    transform: translateX(4px);
+}
+
+/* Menu footer */
+.mega-menu-footer {
+    grid-column: 1 / -1;
+    margin-top: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(56, 40, 30, 0.1);
+}
+
+.view-all-link {
+    color: #BA5D38;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+}
+
+.view-all-link:hover {
+    gap: 10px;
+}
+
+/* Mobile menu responsiveness */
+@media (max-width: 768px) {
+    .mega-menu {
+        position: static;
+        transform: none;
+        min-width: auto;
+        width: 100%;
+        margin-top: 12px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav-item.dropdown:hover .mega-menu,
+    .nav-item.dropdown.active .mega-menu {
+        transform: none;
+    }
+
+    .mega-link:hover {
+        transform: none;
+    }
+}
